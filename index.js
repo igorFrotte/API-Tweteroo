@@ -1,18 +1,11 @@
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
-const tasks = [];
-
-app.post('/tasks', (req, res) => {
-  const task = req.body;
-  tasks.push(task);
-  res.send(task);
-});
-
-app.get('/tasks', (req, res) => {
-  res.send(tasks);
-});
+const users = [];
+const tweets = [];
 
 app.listen(5000);
