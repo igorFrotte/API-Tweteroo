@@ -20,4 +20,14 @@ app.post('/tweets', (req, res) => {
   res.send("OK");
 });
 
+app.get('/tweets', (req, res) => {
+  const obj = tweets.map((e) => {
+     return {
+      ...e,
+      avatar: users.find((el) => el.username === e.username).avatar
+    }
+  });
+  res.send(obj.slice(-10));
+}); 
+
 app.listen(5000);
