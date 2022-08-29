@@ -27,7 +27,7 @@ app.get('/tweets', (req, res) => {
       avatar: users.find((el) => el.username === e.username).avatar
     }
   });
-  res.send(obj.slice(-10));
+  res.send(obj.slice(-10).reverse());
 }); 
 
 app.listen(5000);
